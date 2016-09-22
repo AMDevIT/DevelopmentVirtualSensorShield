@@ -1,0 +1,65 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DevelopmentVirtualSensorShield"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModels="using:DevelopmentVirtualSensorShield.ViewModels"
+    x:Class="DevelopmentVirtualSensorShield.MainPage"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModels:MainPageViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto "/>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Development virtual sensor shield" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Margin="10"/>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto "/>                
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="5" 
+                        Orientation="Vertical" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+                <TextBlock Margin="5" Text="Last timestamp: " HorizontalAlignment="Center"/>
+                <TextBlock Margin="5" Text="{Binding LastTimestamp}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Pressure (hpa)" Margin="5"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Pressure}" Margin="5"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Altitude change (mt)" Margin="5"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Altitude}" Margin="5"/>
+            
+            <!-- Acceleration values -->
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Acceelration X" Margin="5"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding AccelerationX}" Margin="5"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Acceelration Y" Margin="5"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding AccelerationY}" Margin="5"/>
+            
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Acceelration Z" Margin="5"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding AccelerationZ}" Margin="5"/>
+        </Grid>
+    </Grid>
+</Page>
